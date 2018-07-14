@@ -1,0 +1,22 @@
+{
+  "name": "fend-project-memory-game",
+  "version": "1.0.0",
+  "description": "my 2nd project",
+  "main": "\u001b[D\u001b[D\u001b[D\u001bapp\u001bapp.js\u001b[C\u001b\u001b[C\u001b[C)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feezo/fend-project-memory-game.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/feezo/fend-project-memory-game/issues"
+  },
+  "homepage": "https://github.com/feezo/fend-project-memory-game#readme",
+  "dependencies": {
+    "easytimer.js": "^2.2.3"
+  }
+}
