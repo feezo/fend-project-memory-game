@@ -1,11 +1,11 @@
 /*
  * Create a list that holds all of your cards
  */
- const fontIcons = [
- "fa fa-diamond","fa fa-cube","fa fa-paper-plane-o","fa fa-bicycle","fa fa-cube",
- "fa fa-anchor","fa fa-leaf","fa fa-bomb","fa fa-bolt","fa fa-bicycle","fa fa-leaf",
- "fa fa-bolt","fa fa-paper-plane-o","fa fa-diamond","fa fa-anchor","fa fa-bomb"
- ];
+ const cards = [
+ "fas fa-gem","fa fa-cube","fas fa-paper-plane","fa fa-bicycle",
+ "fa fa-anchor","fa fa-leaf","fa fa-bomb","fa fa-bolt"];
+
+const fontIcons = [...cards, ...cards];
 
 /*
  * Display the cards on the page
@@ -13,12 +13,12 @@
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
- const cardContainer = document.querySelector('.deck')
+ const cardContainer = document.querySelector('.deck');
 
  function init(){
    for(let i = 0; i < fontIcons.length; i++){
      const card =document.createElement('li');
-     card.classList.add('card')
+     card.classList.add('card');
      card.innerHTML = `<i class ='${fontIcons[i]}')></i>`;
      cardContainer.appendChild(card);
      click(card);
@@ -69,15 +69,45 @@
     addMoves();
   }
 
-  /*
-  if all cards have matched, display a message with the final score
-  */
-  function gameOver() {
+/*
+if all cards have matched, display a message with the final score
+*/
+
+function gameOver() {
     if(matchedCard.length === fontIcons.length){
-      alert(`game is over you made ${moves} moves`);
-    }
+    openModal();
+    //alert(`game is over you made ${moves} moves`);
     shuffle(fontIcons); //shuffle card.
+    clearInterval(trend);
   }
+}
+
+/*
+*create modals to appear with instructions at the end of our game.
+*/
+
+const modal = document.querySelector('.modal');
+const closeBtn =  document.querySelector('.closeBtn');
+const modalp = document.querySelector('.modal-p');
+
+//add event listener to close modal box
+closeBtn.addEventListener('click',closeModal);
+
+//create a function to open modals
+function openModal(){
+ modal.style.display = 'block';
+ modalp.innerHTML = `game is over you made ${moves} moves click on &times; to close this modal box and press the <i class="fas fa-redo-alt"></i> button on the top right corner of the page to restart game`;
+ }
+
+//create a function to close modals
+function closeModal(){
+  modal.style.display = 'none';
+}
+
+
+
+
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -99,6 +129,7 @@ function shuffle(array) {
 */
 
 const movesDiv = document.querySelector('.moves');
+
 let moves = 0;
 movesDiv.innerHTML = 0;
 function addMoves(){
@@ -124,13 +155,48 @@ function rating(){
   }
 }
 
-var timer = new Timer();
-timer.start({precision: 'seconds'});
-timer.addEventListener('secondsUpdated', function (e){
-  $('#gameStart .minutes').html(timer.getTotalTimeValues().minutes);
-  $('#gameStart .seconds').html(timer.getTotalTimeValues().seconds);
-  $('#gameStart .secondTenths').html(timer.getTotalTimeValues().secondTenths);
+
+/*
+*create a function to set time
+*create a function to set countdown clock
+*create a function to rest the countdown time
+*/
+
+var trend ;
+
+function startTimer(duration, display) {
+   var timer = duration,minutes,seconds;
+    trend = setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.text(minutes + ":" + seconds);
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+
+//set count down time
+jQuery(function ($) {
+    var fiveMinutes = 60 * 5,
+        display = $('#gameStart');
+    startTimer(fiveMinutes, display);
 });
+
+
+//a time reset function
+function reset(){
+  clearInterval(trend);
+  var fiveMinutes = 60 * 5,
+  display = $('#gameStart');
+  startTimer(fiveMinutes, display);
+}
+
 
 
 
@@ -139,29 +205,20 @@ timer.addEventListener('secondsUpdated', function (e){
 *create a variable for restart button
 *added event addEventListener
 *reset the button to clear previous moves upon click
+*reset the button to shuffle cards and restart time
 */
 
-const restartBtn = document.querySelector('.restart')
+const restartBtn = document.querySelector('.restart');
 restartBtn.addEventListener ("click",function (){
   cardContainer.innerHTML = "";
   init();
+  shuffle(fontIcons);
   matchedCard = [];
   moves = 0;
   movesDiv.innerHTML = moves;
-
+  reset();
 }
+);
 
-)
 //initialitize our game.
 init();
-
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */

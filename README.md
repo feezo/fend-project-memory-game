@@ -2,7 +2,8 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+* [Instructions]
+The game starts at five minutes for every play counting down to 00:00. Each player are given 3 stars a at the beginning, the aim is to see how many star each will keep in 5 minutes. There's reset button to restart the at any time you wish. You can the game by clicking this link http://127.0.0.1:3000/ . Dependencies include jQuery,google fonts and  fontawesome.
 * [Contributing](#contributing)
 
 ## Instructions
