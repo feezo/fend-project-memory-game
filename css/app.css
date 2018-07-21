@@ -112,7 +112,6 @@ h1 {
 color: #000;
 float: right;
 font-size: 30px;
-
 padding: 20px auto;
 }
 
@@ -155,3 +154,54 @@ padding: 20px auto;
     float: right;
     cursor: pointer;
 }
+
+/* Extra small devices (phones, 360px and down) */
+@media only screen and (max-width: 360px) {
+  body {
+      width: 100%;
+      height: 80%;
+      margin: 0;
+      padding: 0;
+  }
+  .deck {
+      width: 280px;
+      min-height: 300px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  .deck .card {
+    height: 100px;
+    width: 100px;
+    margin-bottom: 10px;
+  }
+.score-panel{
+  width: 300px;
+}
+}
+
+/* Small devices (portrait tablets and large phones, 360px and up) */
+@media only screen and (min-width: 361px)
+  and (max-width: 640px) {
+    body {
+        width: 100%;
+        height: 80%;
+        margin: 0;
+        padding: 0;
+    }
+    .deck {
+        width: 350px;
+        min-height: 300px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+    .deck .card {
+      height: 100px;
+      width: 100px;
+      margin-bottom: 10px;
+    }
+  .score-panel{
+    width: 350px;
+  }
+  }
