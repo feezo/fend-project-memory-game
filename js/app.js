@@ -1,7 +1,7 @@
 /*
- * Create a list that holds all of your cards
- */
- const cards = [
+* Create a list that holds all of your cards
+*/
+const cards = [
  "fas fa-gem","fa fa-cube","fas fa-paper-plane","fa fa-bicycle",
  "fa fa-anchor","fa fa-leaf","fa fa-bomb","fa fa-bolt"];
 
@@ -46,6 +46,7 @@ const fontIcons = [...cards, ...cards];
       }
     }
  )
+
  }
 
  /*
@@ -220,5 +221,6 @@ restartBtn.addEventListener ("click",function (){
 }
 );
 
+ shuffle(fontIcons);
 //initialitize our game.
 init();
