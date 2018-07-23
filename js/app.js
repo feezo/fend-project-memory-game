@@ -97,7 +97,7 @@ closeBtn.addEventListener('click',closeModal);
 //create a function to open modals
 function openModal(){
  modal.style.display = 'block';
- modalp.innerHTML = `game is over you made ${moves} moves click on &times; to close this modal box and press the <i class="fas fa-redo-alt"></i> button on the top right corner of the page to restart game`;
+ modalp.innerHTML = `game is over you made ${moves} moves and saved ${moveCount} stars, click on &times;. To close this modal box and press the <i class="fas fa-redo-alt"></i> button on the top right corner of the page to restart game`;
  }
 
 //create a function to close modals
@@ -133,6 +133,8 @@ const movesDiv = document.querySelector('.moves');
 
 let moves = 0;
 movesDiv.innerHTML = 0;
+let moveCount = "";
+
 function addMoves(){
    moves++;
   movesDiv.innerHTML = moves;
@@ -147,12 +149,15 @@ function rating(){
   if(moves < 15){
     starDiv.innerHTML = `<li><i class="fa fa-star"></i></li>
     <li><i class="fa fa-star"></i></li>
-    <li><i class="fa fa-star"></i></li>`
+    <li><i class="fa fa-star"></i></li>`;
+    moveCount = 3;
   }else if( moves <= 20){
     starDiv.innerHTML = `<li><i class="fa fa-star"></i></li>
-    <li><i class="fa fa-star"></i></li>`
+    <li><i class="fa fa-star"></i></li>`;
+    moveCount = 2;
   }else{
-    starDiv.innerHTML = `<li><i class="fa fa-star"></i></li>`
+    starDiv.innerHTML = `<li><i class="fa fa-star"></i></li>`;
+    moveCount = 1;
   }
 }
 
@@ -191,6 +196,7 @@ jQuery(function ($) {
 
 
 //a time reset function
+
 function reset(){
   clearInterval(trend);
   var fiveMinutes = 60 * 5,
@@ -198,7 +204,14 @@ function reset(){
   startTimer(fiveMinutes, display);
 }
 
-
+/*const count = timeIt();
+const counter = 0;
+function timeIt(){
+  counter++;
+  let timer = duration,minutes,seconds;
+  let fiveMinutes = 60 * 5,
+  timer.innerHTML = (fiveMinutes - counter);
+}*/
 
 
 
