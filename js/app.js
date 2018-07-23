@@ -168,10 +168,10 @@ function rating(){
 *create a function to rest the countdown time
 */
 
-var trend ;
+let trend ;
 
 function startTimer(duration, display) {
-   var timer = duration,minutes,seconds;
+   let timer = duration,minutes,seconds;
     trend = setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
@@ -189,7 +189,7 @@ function startTimer(duration, display) {
 
 //set count down time
 jQuery(function ($) {
-    var fiveMinutes = 60 * 5,
+    let fiveMinutes = 60 * 5,
         display = $('#gameStart');
     startTimer(fiveMinutes, display);
 });
@@ -199,19 +199,12 @@ jQuery(function ($) {
 
 function reset(){
   clearInterval(trend);
-  var fiveMinutes = 60 * 5,
+  let fiveMinutes = 60 * 5,
   display = $('#gameStart');
   startTimer(fiveMinutes, display);
 }
 
-/*const count = timeIt();
-const counter = 0;
-function timeIt(){
-  counter++;
-  let timer = duration,minutes,seconds;
-  let fiveMinutes = 60 * 5,
-  timer.innerHTML = (fiveMinutes - counter);
-}*/
+
 
 
 
@@ -234,6 +227,6 @@ restartBtn.addEventListener ("click",function (){
 }
 );
 
- shuffle(fontIcons);
+shuffle(fontIcons);
 //initialitize our game.
 init();

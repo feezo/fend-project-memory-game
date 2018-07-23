@@ -14,5 +14,3 @@ Each player is given 3 stars at the beginning, the aim is to see how many stars 
 There's reset button to restart the at any time you wish. You can play the game by clicking this link http://127.0.0.1:3000/ .
 
 A modal appears at the end of the game showing how many moves you made and stars saved .
-
-* [Contributing]
