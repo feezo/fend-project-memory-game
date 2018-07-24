@@ -12,26 +12,26 @@ There's reset button to restart the game at any time you wish.
 A modal appears at the end of the game showing how many moves you made and stars saved .
 
 
-#Playing
+## Playing
 You can play the game by clicking this link  (http://127.0.0.1:3000/)
 
 
 ## Built With
 - jQuery - Library used
 - FontAwesome - fonts used for cards
-- BootStrap - Dependency
+- BootStrap - Dependency.
 
 
-##Contributing
+## Contributing
 Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
 
 
-##Versioning
+## Versioning
 We use SemVer for versioning.
 
-##Author
+## Author
 - Hafis Jimoh
 
-#Acknowledgement
+## Acknowledgement
 - My mentor Saksham
 - Slack channels
