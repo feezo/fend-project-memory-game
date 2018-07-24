@@ -13,12 +13,11 @@ A modal appears at the end of the game showing how many moves you made and stars
 Each player is given 3 stars at the beginning, the aim is to see how many stars a player saves in 5 minutes.
 
 ## Playing
-You can play the game by clicking this link  (http://127.0.0.1:3000/)
-
+You can play the game by clicking on this link  (http://127.0.0.1:3000/)
 
 ## Built With
-- jQuery - Library used
-- FontAwesome - fonts used for cards
+- jQuery - Js Library used
+- FontAwesome - fonts used for cards in the deck
 - BootStrap - Dependency.
 
 
