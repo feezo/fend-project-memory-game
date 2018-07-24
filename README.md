@@ -1,22 +1,38 @@
 # Memory Game Project
+This is a fun game of designed to test your visual memory, matching cards in a deck in the shortest possible time .
 
-## Table of Contents
 
-* [Instructions]
+## Getting Started
+The game starts at five minutes for every play counting down to 00:00.
 
-* [Contributing](#contributing)
+Each player is given 3 stars at the beginning, the aim is to see how many stars a player saves in 5 minutes.
 
-## Instructions
-The game starts at five minutes for every play counting down to 00:00. Each player are given 3 stars a at the beginning, the aim is to see how many star each will keep in 5 minutes. There's reset button to restart the at any time you wish. You can the game by clicking this link http://127.0.0.1:3000/ . Dependencies include jQuery,google fonts and  fontawesome.
+There's reset button to restart the game at any time you wish.
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+A modal appears at the end of the game showing how many moves you made and stars saved .
 
-To get started, open `js/app.js` and start building out the app's functionality
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+#Playing
+You can play the game by clicking this link  (http://127.0.0.1:3000/)
 
-## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+## Built With
+- jQuery - Library used
+- FontAwesome - fonts used for cards
+- BootStrap - Dependency
+
+
+##Contributing
+Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
+
+
+##Versioning
+We use SemVer for versioning.
+
+##Author
+- Hafis Jimoh
+
+#Acknowledgement
+- My mentor Saksham
+- Slack channels
