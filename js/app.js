@@ -97,7 +97,7 @@ closeBtn.addEventListener('click',closeModal);
 //create a function to open modals
 function openModal(){
  modal.style.display = 'block';
- modalp.innerHTML = `game is over you made ${moves} moves and saved ${moveCount} stars, click on &times;. To close this modal box and press the <i class="fas fa-redo-alt"></i> button on the top right corner of the page to restart game`;
+ modalp.innerHTML = `game is over you made ${moves} moves and saved ${moveCount} stars , click on &times;. To close this modal box and press the <i class="fas fa-redo-alt"></i> button on the top right corner of the page to restart game`;
  }
 
 //create a function to close modals
