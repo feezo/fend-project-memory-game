@@ -65,7 +65,7 @@ const fontIcons = [...cards, ...cards];
      presentCard.classList.remove('open','show','disabled');
      previousCard.classList.remove('open','show','disabled'); // if the cards do not match, remove the cards from the list and hide the card's symbol
      openCard = [];
-     }, 500);
+     },0);
     }
 
     addMoves();
@@ -98,7 +98,17 @@ closeBtn.addEventListener('click',closeModal);
 //create a function to open modals
 function openModal(){
  modal.style.display = 'block';
- modalp.innerHTML = `Congratulations you win <br> You made  ${moves} moves and saved ${moveCount} stars <br>  Click on &times;. To close this modal box and press the <i class="fas fa-redo-alt"></i> button on the top right corner of the page to restart game`;
+ modalp.innerHTML = winningStrings();
+
+ function winningStrings() {
+   const totalTime = 300;
+   const timeLeft = minutes * 60 + seconds;
+   const timeTaken = totalTime - timeLeft ;
+   const newMinutes = Math.floor(timeTaken / 60) ;
+   const newSeconds = timeTaken % 60  ;
+   const winningString = `Congrats! You took ${newMinutes} minutes and ${newSeconds} seconds!`;
+   return winningString;
+  }
  }
 
 //create a function to close modals
@@ -170,12 +180,18 @@ function rating(){
 */
 
 let trend ;
+let duration ;
+const timer = duration;
+const minutes = parseInt(timer / 60, 10);
+const seconds = parseInt(timer % 60, 10);
+
 
 function startTimer(duration, display) {
-   let timer = duration,minutes,seconds;
+    var timer = duration,minutes,seconds ;
     trend = setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
+
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
@@ -205,10 +221,6 @@ function reset(){
   startTimer(fiveMinutes, display);
 }
 
-
-
-
-
 /*
 *create a variable for restart button
 *added event addEventListener
@@ -222,6 +234,7 @@ restartBtn.addEventListener ("click",function (){
   init();
   shuffle(fontIcons);
   matchedCard = [];
+  openCard = [];
   moves = 0;
   movesDiv.innerHTML = moves;
   reset();
