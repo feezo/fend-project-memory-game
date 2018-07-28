@@ -23,6 +23,7 @@ const fontIcons = [...cards, ...cards];
      card.innerHTML = `<i class ='${fontIcons[i]}')></i>`;
      cardContainer.appendChild(card);
      click(card);
+
    }
  }
 
@@ -80,7 +81,7 @@ function gameOver() {
     openModal();
     //alert(`game is over you made ${moves} moves`);
     shuffle(fontIcons); //shuffle card.
-    clearInterval(trend);
+    clearInterval(i);
   }
 }
 
@@ -98,17 +99,7 @@ closeBtn.addEventListener('click',closeModal);
 //create a function to open modals
 function openModal(){
  modal.style.display = 'block';
- modalp.innerHTML = winningStrings();
-
- function winningStrings() {
-   const totalTime = 300;
-   const timeLeft = minutes * 60 + seconds;
-   const timeTaken = totalTime - timeLeft ;
-   const newMinutes = Math.floor(timeTaken / 60) ;
-   const newSeconds = timeTaken % 60  ;
-   const winningString = `Congrats! You took ${newMinutes} minutes and ${newSeconds} seconds!`;
-   return winningString;
-  }
+ modalp.innerHTML = `Congrats! You saved ${moveCount} stars in ${min} minutes and ${second} seconds. Click on &times; to close modal box and <i class="fas fa-redo-alt"></i> button on the top right side of the page to replay` ;
  }
 
 //create a function to close modals
@@ -179,46 +170,31 @@ function rating(){
 *create a function to rest the countdown time
 */
 
-let trend ;
-let duration ;
-const timer = duration;
-const minutes = parseInt(timer / 60, 10);
-const seconds = parseInt(timer % 60, 10);
 
-
-function startTimer(duration, display) {
-    var timer = duration,minutes,seconds ;
-    trend = setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.text(minutes + ":" + seconds);
-
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
+let min = 0;
+let second = 0;
+let i ;
+let timer_time;
+function startTimer(){
+   i =setInterval(function(){
+      second++;
+      if(second > 59){
+          second = 0;
+          min++;
+      }
+       timer_time = (min > 9 ? min : '0'+min)+':'+(second > 9 ? second : '0'+second);
+      $('#gameStart').html(timer_time);
+  }, 1000);
 }
 
 
-//set count down time
-jQuery(function ($) {
-    let fiveMinutes = 60 * 5,
-        display = $('#gameStart');
-    startTimer(fiveMinutes, display);
-});
-
-
-//a time reset function
+function stopTimer(){
+    clearInterval(i);
+}
 
 function reset(){
-  clearInterval(trend);
-  let fiveMinutes = 60 * 5,
-  display = $('#gameStart');
-  startTimer(fiveMinutes, display);
+  stopTimer();
+
 }
 
 /*
@@ -238,9 +214,11 @@ restartBtn.addEventListener ("click",function (){
   moves = 0;
   movesDiv.innerHTML = moves;
   reset();
+
 }
 );
 
 shuffle(fontIcons);
 //initialitize our game.
+startTimer();
 init();
