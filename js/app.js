@@ -194,7 +194,7 @@ function stopTimer(){
 
 function reset(){
   stopTimer();
-
+  startTimer();
 }
 
 /*
