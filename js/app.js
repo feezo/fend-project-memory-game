@@ -23,8 +23,8 @@ const fontIcons = [...cards, ...cards];
      card.innerHTML = `<i class ='${fontIcons[i]}')></i>`;
      cardContainer.appendChild(card);
      click(card);
-
    }
+    startTimer();
  }
 
  let openCard = [];
@@ -166,8 +166,8 @@ function rating(){
 
 /*
 *create a function to set time
-*create a function to set countdown clock
-*create a function to rest the countdown time
+*create a function to stop the time
+*create a function to reset the  time
 */
 
 
@@ -176,6 +176,7 @@ let second = 0;
 let i ;
 let timer_time;
 function startTimer(){
+  clearInterval(i);
    i =setInterval(function(){
       second++;
       if(second > 59){
@@ -189,12 +190,14 @@ function startTimer(){
 
 
 function stopTimer(){
-    clearInterval(i);
+  clearInterval(i)
 }
 
 function reset(){
-  stopTimer();
-  startTimer();
+   stopTimer()
+   min = 0;
+   second = 0;
+   startTimer();
 }
 
 /*
@@ -214,11 +217,10 @@ restartBtn.addEventListener ("click",function (){
   moves = 0;
   movesDiv.innerHTML = moves;
   reset();
-
 }
 );
 
 shuffle(fontIcons);
 //initialitize our game.
-startTimer();
+
 init();
